@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class AppUserDetails implements UserDetails {
+public class AppUserDetail implements UserDetails {
 
     private Long id ;
 
@@ -21,10 +21,10 @@ public class AppUserDetails implements UserDetails {
 
     private List<GrantedAuthority> authorities ;
 
-    public AppUserDetails() {
+    public AppUserDetail() {
         super();
     }
-    public AppUserDetails(AppUser user) {
+    public AppUserDetail(AppUser user) {
         super();
         this.id = user.getId();
         this.fullName = user.getFullName();

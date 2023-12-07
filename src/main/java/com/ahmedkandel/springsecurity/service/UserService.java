@@ -2,11 +2,8 @@ package com.ahmedkandel.springsecurity.service;
 
 import com.ahmedkandel.springsecurity.entity.AppUser;
 import com.ahmedkandel.springsecurity.repository.UserRepo;
-import com.ahmedkandel.springsecurity.security.AppUserDetails;
+import com.ahmedkandel.springsecurity.security.AppUserDetail;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,7 +41,7 @@ public class UserService implements UserDetailsService {
         if (!appUser.isPresent()) {
             throw new UsernameNotFoundException("This User Not found with selected user name :- " + username);
         }
-        return new AppUserDetails(appUser.get());
+        return new AppUserDetail(appUser.get());
     }
 
 //    private static List<GrantedAuthority> getAuthorities(AppUser user) {

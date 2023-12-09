@@ -90,7 +90,8 @@ public class JwtTokenUtils {
             //  throw new SecurityException("Invalid JWT Signature");
         }catch (MalformedJwtException ex){
             log.info("Invalid JWT token");
-            httpServletRequest.setAttribute("expired",ex.getMessage());
+//            httpServletRequest.setAttribute("expired",ex.getMessage());
+            httpServletRequest.setAttribute("Malformed",ex.getMessage());
             //  throw new SecurityException("Invalid JWT token");
         }catch (ExpiredJwtException ex){
             log.info("Expired JWT token");

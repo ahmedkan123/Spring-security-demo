@@ -16,5 +16,13 @@ public class JwtUnAuthResponse implements AuthenticationEntryPoint, Serializable
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException, ServletException {
 
+        authException.printStackTrace();
+        final String expired = (String) request.getAttribute("expired");
+        System.out.println("ex >>>>" + expired);
+        if (expired != null){
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED,expired);
+        } else {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You would need to provide the Jwt token to access this resource");
+        }
     }
 }

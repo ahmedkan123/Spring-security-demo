@@ -1,9 +1,3 @@
-private Key getSignInKey() {
-    byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-    return Keys.hmacShaKeyFor(keyBytes);
-  }
-
-  
 # Spring-security-demo
 #### Article On Jwt
 + https://3alam.pro/1337r00t/articles/jwt
